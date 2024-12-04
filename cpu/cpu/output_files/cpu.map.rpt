@@ -1,0 +1,472 @@
+Analysis & Synthesis report for cpu
+Tue Dec  3 23:12:23 2024
+Quartus Prime Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for altsyncram_dj24:inst
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2021  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Dec  3 23:12:23 2024       ;
+; Quartus Prime Version           ; 21.1.0 Build 842 10/21/2021 SJ Lite Edition ;
+; Revision Name                   ; cpu                                         ;
+; Top-level Entity Name           ; cpu_offic                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 42                                          ;
+; Total pins                      ; 67                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 4,352                                       ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; cpu_offic          ; cpu                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
+; alu.vhd                          ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd                ;         ;
+; mux_eight_two.vhd                ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_two.vhd      ;         ;
+; mux_eight_four.vhd               ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_four.vhd     ;         ;
+; demux.vhd                        ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/demux.vhd              ;         ;
+; Registrador.vhd                  ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/Registrador.vhd        ;         ;
+; banco_de_reg.vhd                 ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd       ;         ;
+; contador.vhd                     ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/contador.vhd           ;         ;
+; unid_controle.vhd                ; yes             ; User VHDL File                         ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/unid_controle.vhd      ;         ;
+; cpu_offic.bdf                    ; yes             ; User Block Diagram/Schematic File      ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/cpu_offic.bdf          ;         ;
+; db/altsyncram_dj24.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/db/altsyncram_dj24.tdf ;         ;
+; instrucoes.mif                   ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/instrucoes.mif         ;         ;
++----------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 57        ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 86        ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 25        ;
+;     -- 5 input functions                    ; 31        ;
+;     -- 4 input functions                    ; 9         ;
+;     -- <=3 input functions                  ; 21        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 42        ;
+;                                             ;           ;
+; I/O pins                                    ; 67        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 4352      ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 59        ;
+; Total fan-out                               ; 872       ;
+; Average fan-out                             ; 3.13      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Entity Name     ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-----------------+--------------+
+; |cpu_offic                       ; 86 (5)              ; 42 (2)                    ; 4352              ; 0          ; 67   ; 0            ; |cpu_offic                                             ; cpu_offic       ; work         ;
+;    |altsyncram_dj24:inst|        ; 0 (0)               ; 0 (0)                     ; 4352              ; 0          ; 0    ; 0            ; |cpu_offic|altsyncram_dj24:inst                        ; altsyncram_dj24 ; work         ;
+;    |alu:inst890000|              ; 44 (44)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|alu:inst890000                              ; alu             ; work         ;
+;    |banco_de_reg:inst5|          ; 20 (0)              ; 32 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5                          ; banco_de_reg    ; work         ;
+;       |Registrador:register_0_2| ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|Registrador:register_0_2 ; Registrador     ; work         ;
+;       |Registrador:register_a_2| ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|Registrador:register_a_2 ; Registrador     ; work         ;
+;       |Registrador:register_b_2| ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|Registrador:register_b_2 ; Registrador     ; work         ;
+;       |Registrador:register_r_2| ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|Registrador:register_r_2 ; Registrador     ; work         ;
+;       |demux:Dem|                ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|demux:Dem                ; demux           ; work         ;
+;       |mux_eight_four:Mux1|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|mux_eight_four:Mux1      ; mux_eight_four  ; work         ;
+;       |mux_eight_four:Mux2|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|banco_de_reg:inst5|mux_eight_four:Mux2      ; mux_eight_four  ; work         ;
+;    |contador:inst8002|           ; 8 (8)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|contador:inst8002                           ; contador        ; work         ;
+;    |mux_eight_two:inst8|         ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|mux_eight_two:inst8                         ; mux_eight_two   ; work         ;
+;    |unid_controle:inst25|        ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |cpu_offic|unid_controle:inst25                        ; unid_controle   ; work         ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                               ;
++---------------------------------+------------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; Name                            ; Type       ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF            ;
++---------------------------------+------------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+; altsyncram_dj24:inst|ALTSYNCRAM ; M10K block ; Single Port ; 256          ; 17           ; --           ; --           ; 4352 ; instrucoes.mif ;
++---------------------------------+------------+-------------+--------------+--------------+--------------+--------------+------+----------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal  ; Free of Timing Hazards ;
++----------------------------------------------------+----------------------+------------------------+
+; alu:inst890000|Sinal                               ; alu:inst890000|Mux10 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                      ;                        ;
++----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                      ;
++------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                        ; Reason for Removal                                               ;
++------------------------------------------------------+------------------------------------------------------------------+
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[7] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[7] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[6] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[6] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[5] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[5] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[4] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[4] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[3] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[3] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[2] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[2] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[1] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[1] ;
+; banco_de_reg:inst5|Registrador:register_0_1|d_out[0] ; Merged with banco_de_reg:inst5|Registrador:register_0_2|d_out[0] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[7] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[7] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[6] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[6] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[5] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[5] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[4] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[4] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[3] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[3] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[2] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[2] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[1] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[1] ;
+; banco_de_reg:inst5|Registrador:register_r_1|d_out[0] ; Merged with banco_de_reg:inst5|Registrador:register_r_2|d_out[0] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[7] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[7] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[6] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[6] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[5] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[5] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[4] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[4] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[3] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[3] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[2] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[2] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[1] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[1] ;
+; banco_de_reg:inst5|Registrador:register_b_1|d_out[0] ; Merged with banco_de_reg:inst5|Registrador:register_b_2|d_out[0] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[7] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[7] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[6] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[6] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[5] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[5] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[4] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[4] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[3] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[3] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[2] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[2] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[1] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[1] ;
+; banco_de_reg:inst5|Registrador:register_a_1|d_out[0] ; Merged with banco_de_reg:inst5|Registrador:register_a_2|d_out[0] ;
+; Total Number of Removed Registers = 32               ;                                                                  ;
++------------------------------------------------------+------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 42    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Asynchronous Clear ; 42    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; Sinal                                  ; 1       ;
+; zero                                   ; 1       ;
+; Total number of inverted registers = 2 ;         ;
++----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu_offic|banco_de_reg:inst5|mux_eight_four:Mux1|Mux7 ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |cpu_offic|banco_de_reg:inst5|mux_eight_four:Mux2|Mux0 ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 32 LEs               ; 48 LEs                 ; No         ; |cpu_offic|alu:inst890000|Mux6                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Source assignments for altsyncram_dj24:inst                      ;
++---------------------------------+--------------------+------+----+
+; Assignment                      ; Value              ; From ; To ;
++---------------------------------+--------------------+------+----+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -  ;
++---------------------------------+--------------------+------+----+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 42                          ;
+;     CLR               ; 2                           ;
+;     CLR SLD           ; 8                           ;
+;     ENA CLR           ; 32                          ;
+; arriav_lcell_comb     ; 87                          ;
+;     arith             ; 17                          ;
+;         1 data inputs ; 9                           ;
+;         5 data inputs ; 8                           ;
+;     normal            ; 70                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 11                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 23                          ;
+;         6 data inputs ; 25                          ;
+; boundary_port         ; 67                          ;
+; stratixv_ram_block    ; 17                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 3.90                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.0 Build 842 10/21/2021 SJ Lite Edition
+    Info: Processing started: Tue Dec  3 23:12:15 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cpu -c cpu
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file alu.vhd
+    Info (12022): Found design unit 1: alu-hardware File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd Line: 32
+    Info (12023): Found entity 1: alu File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd Line: 19
+Info (12021): Found 2 design units, including 1 entities, in source file mux_eight_two.vhd
+    Info (12022): Found design unit 1: mux_eight_two-Behavioral File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_two.vhd Line: 15
+    Info (12023): Found entity 1: mux_eight_two File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_two.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file mux_eight_four.vhd
+    Info (12022): Found design unit 1: mux_eight_four-Behavioral File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_four.vhd Line: 17
+    Info (12023): Found entity 1: mux_eight_four File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mux_eight_four.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file demux.vhd
+    Info (12022): Found design unit 1: demux-Behavioral File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/demux.vhd Line: 18
+    Info (12023): Found entity 1: demux File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/demux.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
+    Info (12022): Found design unit 1: Registrador-Behavioral File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/Registrador.vhd Line: 15
+    Info (12023): Found entity 1: Registrador File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/Registrador.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file banco_de_reg.vhd
+    Info (12022): Found design unit 1: banco_de_reg-hardware File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd Line: 21
+    Info (12023): Found entity 1: banco_de_reg File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file mem256x17.vhd
+    Info (12022): Found design unit 1: mem256x17-SYN File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mem256x17.vhd Line: 55
+    Info (12023): Found entity 1: mem256x17 File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/mem256x17.vhd Line: 43
+Info (12021): Found 2 design units, including 1 entities, in source file contador.vhd
+    Info (12022): Found design unit 1: contador-hardware File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/contador.vhd Line: 15
+    Info (12023): Found entity 1: contador File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/contador.vhd Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file cpu.bdf
+    Info (12023): Found entity 1: cpu
+Info (12021): Found 2 design units, including 1 entities, in source file unid_controle.vhd
+    Info (12022): Found design unit 1: unid_controle-Behavioral File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/unid_controle.vhd Line: 21
+    Info (12023): Found entity 1: unid_controle File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/unid_controle.vhd Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file cpu_offic.bdf
+    Info (12023): Found entity 1: cpu_offic
+Info (12127): Elaborating entity "cpu_offic" for the top level hierarchy
+Warning (275008): Primitive "DFF" of instance "Carry" not used
+Warning (275008): Primitive "AND2" of instance "inst20" not used
+Warning (275008): Primitive "NOT" of instance "inst21" not used
+Warning (275008): Primitive "AND2" of instance "inst22" not used
+Warning (275008): Primitive "NOT" of instance "inst23" not used
+Warning (275008): Primitive "GND" of instance "inst29" not used
+Warning (275008): Primitive "GND" of instance "inst30" not used
+Warning (275008): Primitive "DFF" of instance "Overflow" not used
+Info (12128): Elaborating entity "unid_controle" for hierarchy "unid_controle:inst25"
+Warning (10631): VHDL Process Statement warning at unid_controle.vhd(23): inferring latch(es) for signal or variable "cmp", which holds its previous value in one or more paths through the process File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/unid_controle.vhd Line: 23
+Info (10041): Inferred latch for "cmp" at unid_controle.vhd(23) File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/unid_controle.vhd Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dj24.tdf
+    Info (12023): Found entity 1: altsyncram_dj24 File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/db/altsyncram_dj24.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_dj24" for hierarchy "altsyncram_dj24:inst"
+Info (12128): Elaborating entity "contador" for hierarchy "contador:inst8002"
+Info (12128): Elaborating entity "alu" for hierarchy "alu:inst890000"
+Warning (10631): VHDL Process Statement warning at alu.vhd(35): inferring latch(es) for signal or variable "Sinal", which holds its previous value in one or more paths through the process File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd Line: 35
+Info (10041): Inferred latch for "Sinal" at alu.vhd(35) File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd Line: 35
+Info (12128): Elaborating entity "banco_de_reg" for hierarchy "banco_de_reg:inst5"
+Info (12128): Elaborating entity "demux" for hierarchy "banco_de_reg:inst5|demux:Dem" File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd Line: 63
+Info (12128): Elaborating entity "Registrador" for hierarchy "banco_de_reg:inst5|Registrador:register_a_1" File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd Line: 73
+Info (12128): Elaborating entity "mux_eight_four" for hierarchy "banco_de_reg:inst5|mux_eight_four:Mux1" File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/banco_de_reg.vhd Line: 145
+Info (12128): Elaborating entity "mux_eight_two" for hierarchy "mux_eight_two:inst8"
+Warning (13012): Latch alu:inst890000|Sinal has unsafe behavior File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/alu.vhd Line: 26
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal altsyncram_dj24:inst|q_a[13] File: C:/Users/15635441/Desktop/cpu-20241203T182451Z-001/cpu/db/altsyncram_dj24.tdf Line: 33
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 204 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 65 output pins
+    Info (21061): Implemented 120 logic cells
+    Info (21064): Implemented 17 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4878 megabytes
+    Info: Processing ended: Tue Dec  3 23:12:23 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+

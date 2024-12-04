@@ -1,0 +1,138 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+
+entity banco_de_reg is
+	port(
+		clk : in std_logic;
+		reg_write : in std_logic; -- enable 
+		WR : in std_logic_vector(1 sownto 0);
+		WD : in std_logic_vector(7 downto 0);
+		end_RA : in std_logic(1 downto 0);
+		end_RB : in std_logic_vector(1 downto 0);
+		RA : out std_logic_vector(7 downto 0);
+		RB : out std_logic_vector(7 downto 0)
+		
+		--reg_a : in std_logic_vector(7 downto 0);
+		--reg_b: in std_logic_vector(7 downto 0);
+		--reg_r: in std_logic_vector(7 downto 0);
+		-- reg_zero: in std_logic_vector(7 downto 0);
+		
+		--out_0 : out STD_LOGIC_VECTOR(7 downto 0); 
+		--out_1 : out STD_LOGIC_VECTOR(7 downto 0);
+		--out_2 : out STD_LOGIC_VECTOR(7 downto 0);
+		--out_3 : out STD_LOGIC_VECTOR(7 downto 0);
+		
+		--mux1 : in std_logic_vector(1 downto 0);
+		--mux2 : in std_logic_vector(1 downto 0)
+	);
+	
+architecture hardware of banco_de_reg is
+signal wd : std_logic_vector(7 downto 0);
+signal sigAmux1, sigBmux1, sigRmux1, sig0mux1, sigAmux2, sigBmux2, sigRmux2, sig0mux2 : std_logic_vector(7 downto 0);
+signal enable_a, enable_b, enable_r, enable_zero ; in std_logic;
+
+--instanciação do demux
+	component demux is
+		port(
+			input_data : in STD_LOGIC; -- sinal de entrada
+			Sel : in STD_LOGIC_VECTOR(1 downto 0); -- sinal de seleção
+			output_0 : out STD_LOGIC; 
+			output_1 : out STD_LOGIC;
+			output_2 : out STD_LOGIC;
+			output_3 : out STD_LOGIC
+		);
+	end component;
+	
+--instanciação do reg A
+	component Registrador is
+		port(
+			clk    : in  STD_LOGIC;        -- Sinal de clock
+         reset  : in  STD_LOGIC;        -- Sinal de reset
+         enable   : in  STD_LOGIC;        -- Sinal de controle de carga
+         d_in      : in  STD_LOGIC_VECTOR(7 downto 0); -- Entrada de dados
+         d_out     : out STD_LOGIC_VECTOR(7 downto 0)  -- Saída (valor armazenado)
+		);
+		
+	end component;
+	
+--instanciação do mux
+	component mux is
+		port(
+			A : in STD_LOGIC_VECTOR(7 downto 0); -- entrada A
+			B : in STD_LOGIC_VECTOR(7 downto 0); -- entrada B
+			C : in STD_LOGIC_VECTOR(7 downto 0); -- entrada R
+			D : in STD_LOGIC_VECTOR(7 downto 0); -- entrada zero
+			Sel : in STD_LOGIC_VECTOR(1 downto 0); -- para a seleção
+			Y : out STD_LOGIC_VECTOR(7 downto 0) -- saída
+		);
+	end comp
+	
+begin
+	Dem : demux
+		port map(
+			input_data => enable.
+			sel => WR,
+			output_0 => enable_a,
+			output_1 => enable_b,
+			output_2 => enable_r,
+			output_0 => enable_zero
+		);
+		
+	register_a_1 : Registrador
+		port map(
+			clk => clk,
+			reset => reset,
+			enable => enable_a,
+			d_in => wd,
+			d_out => sigAmux1
+		);
+	
+	register_b_1 : Registrador
+		port map(
+			clk => clk,
+			reset => reset,
+			enable => enable_b,
+			d_in => wd,
+			d_out => sigBmux1
+		);
+		
+	register_r_1 : Registrador
+		port map(
+			clk => clk,
+			reset => reset,
+			enable => enable_r,
+			d_in => wd,
+			d_out => sigRmux1
+		);
+		
+	register_0_1 : Registrador
+		port map(
+			clk => clk,
+			reset => reset,
+			enable => enable_0,
+			d_in => wd,
+			d_out => sig0mux1
+		);
+
+end hardware;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

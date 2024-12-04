@@ -1,0 +1,28 @@
+library IEEE;
+use ieee.STD_LOGIC_1164.ALL;
+
+-- interface
+entity mux_eight_two is
+	port (
+			A : in STD_LOGIC_VECTOR(7 downto 0); -- entrada A
+			B : in STD_LOGIC_VECTOR(7 downto 0); -- entrada B
+			Sel : in STD_LOGIC; -- para a seleção
+			Y : out STD_LOGIC_VECTOR(7 downto 0) -- saída
+			);
+end mux_eight_two;
+
+-- arquitetura
+architecture Behavioral of mux_eight_two is
+begin
+	process(A, B, Sel)
+	begin
+		case Sel is
+			when "0" => -- quando o Sel é "0" a saída é igual à A
+				Y <= A;
+			when "1" => -- quando o Sel é "1" a saída é igual à B
+				Y <= B;
+			when others => -- quando o Sel é invalido a saída é igual à 0
+				Y <= '0';
+		end case;
+	end process;
+end Behavioral;
